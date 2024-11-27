@@ -1,63 +1,52 @@
-import { Link } from 'expo-router';
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Link } from 'expo-router'
+import React from 'react'
+import { StyleSheet } from 'react-native'
+import { Button, Text, Layout } from '@ui-kitten/components'
 
 export default function Index() {
   return (
-    <View style={styles.container}>
+    <Layout style={styles.container}>
       <Text style={styles.title}>Welcome to MyApp</Text>
       <Text style={styles.subtitle}>Your journey starts here!</Text>
 
       <Link href="/login" asChild>
-        <TouchableOpacity
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
+        <Button style={{ marginBottom: 15 }} appearance="outline">
+          Login
+        </Button>
       </Link>
 
       <Link href="/register" asChild>
-        <TouchableOpacity
-          style={{...styles.button, ...styles.registerButton}}
-        >
-          <Text style={styles.buttonText}>Register</Text>
-        </TouchableOpacity>
+        <Button>Register</Button>
       </Link>
-    </View>
-  );
-};
+    </Layout>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    alignItems: 'center'
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 10
   },
   subtitle: {
     fontSize: 18,
     color: '#666',
-    marginBottom: 30,
+    marginBottom: 30
   },
   button: {
-    backgroundColor: '#007BFF',
-    paddingVertical: 12,
-    paddingHorizontal: 25,
-    borderRadius: 8,
-    marginBottom: 15,
+    marginBottom: 15
   },
   registerButton: {
-    backgroundColor: '#28A745',
+    backgroundColor: '#28A745'
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: 'bold',
-  },
-});
-
+    fontWeight: 'bold'
+  }
+})

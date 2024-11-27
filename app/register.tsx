@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { Link } from 'expo-router';
+import React, { useState } from 'react'
+import { StyleSheet, TouchableOpacity } from 'react-native'
+import { Link } from 'expo-router'
+import { Input, Button, Text, Layout } from '@ui-kitten/components'
 
 export default function Register() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleRegister = () => {
     // Add register logic here
-    console.log('Register pressed:', { name, email, password, confirmPassword });
-  };
+    console.log('Register pressed:', { name, email, password, confirmPassword })
+  }
 
   return (
-    <View style={styles.container}>
+    <Layout style={styles.container}>
       <Text style={styles.title}>Register</Text>
 
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="Name"
         value={name}
         onChangeText={setName}
       />
 
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="Email"
         keyboardType="email-address"
@@ -32,7 +33,7 @@ export default function Register() {
         onChangeText={setEmail}
       />
 
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="Password"
         secureTextEntry
@@ -40,7 +41,7 @@ export default function Register() {
         onChangeText={setPassword}
       />
 
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="Confirm Password"
         secureTextEntry
@@ -48,31 +49,30 @@ export default function Register() {
         onChangeText={setConfirmPassword}
       />
 
-      <TouchableOpacity style={styles.button}>
+      <Button style={styles.button} onPress={handleRegister}>
         <Text style={styles.buttonText}>Register</Text>
-      </TouchableOpacity>
+      </Button>
 
       <Link href="/login" asChild>
         <TouchableOpacity style={styles.linkButton}>
           <Text style={styles.linkText}>Already have an account? Login</Text>
         </TouchableOpacity>
       </Link>
-    </View>
-  );
-};
+    </Layout>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-    padding: 20,
+    padding: 20
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 20
   },
   input: {
     width: '100%',
@@ -81,29 +81,26 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#ddd',
-    marginBottom: 15,
-    paddingHorizontal: 10,
+    marginBottom: 15
   },
   button: {
-    backgroundColor: '#28a745',
     paddingVertical: 12,
     paddingHorizontal: 25,
     borderRadius: 8,
     width: '100%',
     alignItems: 'center',
-    marginBottom: 15,
+    marginBottom: 15
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   linkButton: {
-    marginTop: 10,
+    marginTop: 10
   },
   linkText: {
     color: '#007BFF',
-    fontSize: 14,
-  },
-});
-
+    fontSize: 14
+  }
+})
